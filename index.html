@@ -20,541 +20,65 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--warm-white);
-    color: var(--charcoal);
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--charcoal); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
   /* ─── NAV ─── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 1.25rem 3rem;
-    background: rgba(253,251,247,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--light-line);
-  }
-  .logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 700; font-size: 1.6rem;
-    color: var(--terracotta);
-    letter-spacing: -0.02em;
-  }
+  nav { position: fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:1.25rem 3rem; background: rgba(253,251,247,0.92); backdrop-filter: blur(12px); border-bottom:1px solid var(--light-line);}
+  .logo { font-family:'Cormorant Garamond', serif; font-weight:700; font-size:1.6rem; color:var(--terracotta); letter-spacing:-0.02em;}
   .logo span { color: var(--moss); }
-  nav a {
-    font-size: 0.85rem; font-weight: 500;
-    color: var(--charcoal); text-decoration: none;
-    letter-spacing: 0.03em; text-transform: uppercase;
-    transition: color 0.2s;
-  }
+  nav a { font-size:0.85rem; font-weight:500; color:var(--charcoal); text-decoration:none; letter-spacing:0.03em; text-transform:uppercase; transition: color 0.2s; }
   nav a:hover { color: var(--terracotta); }
-  .nav-links { display: flex; gap: 2rem; align-items: center; }
-  .nav-cta {
-    background: var(--terracotta); color: var(--warm-white) !important;
-    padding: 0.6rem 1.4rem; border-radius: 6px;
-    text-transform: none !important; font-size: 0.9rem !important;
-    letter-spacing: 0 !important;
-    transition: background 0.2s;
-  }
-  .nav-cta:hover { background: var(--terracotta-dark); color: var(--warm-white) !important; }
+  .nav-links { display:flex; gap:2rem; align-items:center; }
+  .nav-cta { background:var(--terracotta); color:var(--warm-white)!important; padding:0.6rem 1.4rem; border-radius:6px; text-transform:none!important; font-size:0.9rem!important; letter-spacing:0!important; transition:background 0.2s; }
+  .nav-cta:hover { background: var(--terracotta-dark); color: var(--warm-white)!important; }
 
   /* ─── HERO ─── */
-  .hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-    justify-content: center; align-items: center;
-    text-align: center;
-    padding: 8rem 2rem 4rem;
-    background: var(--beige);
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 50% at 20% 80%, rgba(184,92,56,0.06) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 40% at 80% 20%, rgba(92,107,74,0.05) 0%, transparent 70%);
-  }
-  .hero-eyebrow {
-    font-size: 0.8rem; font-weight: 500;
-    letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--moss);
-    margin-bottom: 1.5rem;
-    position: relative;
-    opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s;
-  }
-  .hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.8rem, 6.5vw, 5.2rem);
-    font-weight: 600;
-    line-height: 1.08;
-    letter-spacing: -0.025em;
-    color: var(--charcoal);
-    max-width: 800px;
-    position: relative;
-    opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s;
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--terracotta);
-  }
-  .hero-sub {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    color: var(--charcoal);
-    opacity: 0.75;
-    max-width: 520px;
-    margin-top: 1.8rem;
-    position: relative;
-    opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s;
-  }
-  .hero-cta-group {
-    display: flex; gap: 1rem; align-items: center;
-    margin-top: 2.5rem; flex-wrap: wrap; justify-content: center;
-    position: relative;
-  }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: var(--terracotta); color: var(--warm-white);
-    padding: 1rem 2rem; border-radius: 8px;
-    font-size: 1rem; font-weight: 500; font-family: 'DM Sans', sans-serif;
-    text-decoration: none; border: none; cursor: pointer;
-    transition: all 0.25s ease;
-    box-shadow: 0 2px 12px rgba(184,92,56,0.2);
-  }
-  .btn-primary:hover {
-    background: var(--terracotta-dark);
-    box-shadow: 0 4px 20px rgba(184,92,56,0.3);
-    transform: translateY(-1px);
-  }
-  .hero-proof {
-    margin-top: 3rem;
-    font-size: 0.82rem;
-    color: var(--warm-gray);
-    letter-spacing: 0.02em;
-    position: relative;
-    opacity: 0; animation: fadeUp 0.8s ease forwards 1s;
-  }
-  .hero-proof span {
-    display: inline-block;
-    width: 4px; height: 4px;
-    background: var(--light-line);
-    border-radius: 50%;
-    margin: 0 0.75rem;
-    vertical-align: middle;
-  }
+  .hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:8rem 2rem 4rem; background:var(--beige); position:relative; overflow:hidden;}
+  .hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 60% 50% at 20% 80%, rgba(184,92,56,0.06) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 80% 20%, rgba(92,107,74,0.05) 0%, transparent 70%);}
+  .hero-eyebrow { font-size:0.8rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--moss); margin-bottom:1.5rem; position:relative; opacity:0; animation:fadeUp 0.8s ease forwards 0.2s;}
+  .hero h1 { font-family:'Cormorant Garamond', serif; font-size:clamp(2.8rem,6.5vw,5.2rem); font-weight:600; line-height:1.08; letter-spacing:-0.025em; color:var(--charcoal); max-width:800px; position:relative; opacity:0; animation:fadeUp 0.8s ease forwards 0.4s; }
+  .hero h1 em { font-style:italic; color: var(--terracotta); }
+  .hero-sub { font-size:1.15rem; line-height:1.7; color:var(--charcoal); max-width:520px; margin-top:1.8rem; opacity:0; animation:fadeUp 0.8s ease forwards 0.6s; }
+  .hero-cta-group { display:flex; gap:1rem; align-items:center; margin-top:2.5rem; flex-wrap:wrap; justify-content:center; position:relative; }
+  .btn-primary { display:inline-flex; align-items:center; gap:0.5rem; background:var(--terracotta); color:var(--warm-white); padding:1rem 2rem; border-radius:8px; font-size:1rem; font-weight:500; text-decoration:none; border:none; cursor:pointer; transition:all 0.25s ease; box-shadow:0 2px 12px rgba(184,92,56,0.2);}
+  .btn-primary:hover { background: var(--terracotta-dark); box-shadow:0 4px 20px rgba(184,92,56,0.3); transform:translateY(-1px);}
+  .hero-proof { margin-top:3rem; font-size:0.82rem; color:var(--warm-gray); letter-spacing:0.02em; position:relative; opacity:0; animation:fadeUp 0.8s ease forwards 1s;}
+  .hero-proof span { display:inline-block; width:4px; height:4px; background:var(--light-line); border-radius:50%; margin:0 0.75rem; vertical-align:middle; }
 
   /* ─── SECTION BASICS ─── */
-  .section-label {
-    font-size: 0.75rem; font-weight: 500;
-    letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 1.5rem;
-  }
-
-  /* ─── PAIN SECTION ─── */
-  .pain {
-    padding: 7rem 2rem;
-    background: var(--warm-white);
-  }
-  .pain-inner {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .pain h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    color: var(--charcoal);
-    max-width: 700px;
-  }
-  .pain-body {
-    margin-top: 2rem;
-    font-size: 1.05rem;
-    line-height: 1.85;
-    color: var(--charcoal);
-    opacity: 0.8;
-    max-width: 640px;
-  }
-  .pain-list {
-    margin-top: 3rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-  }
-  .pain-item {
-    padding: 1.8rem;
-    background: var(--beige);
-    border-radius: 10px;
-    border: 1px solid transparent;
-    transition: border-color 0.3s;
-  }
-  .pain-item:hover { border-color: var(--light-line); }
-  .pain-item-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem; font-weight: 600;
-    color: var(--terracotta);
-    opacity: 0.4;
-    line-height: 1;
-    margin-bottom: 0.75rem;
-  }
-  .pain-item h3 {
-    font-size: 0.95rem; font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: var(--charcoal);
-  }
-  .pain-item p {
-    font-size: 0.88rem;
-    line-height: 1.65;
-    color: var(--charcoal);
-    opacity: 0.7;
-  }
-  .pain-resolve {
-    display: block;
-    margin-top: 0.7rem;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--moss);
-  }
-
-  /* ─── DIVIDER ─── */
-  .divider {
-    max-width: 900px;
-    margin: 0 auto;
-    height: 1px;
-    background: var(--light-line);
-  }
-
-  /* ─── FEATURES ─── */
-  .features {
-    padding: 7rem 2rem;
-    background: var(--warm-white);
-  }
-  .features-inner {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  .features-header {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
-  .features-header h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    margin-top: 0.5rem;
-  }
-  .features-header p {
-    font-size: 1.05rem;
-    color: var(--charcoal);
-    opacity: 0.7;
-    max-width: 480px;
-    margin: 1rem auto 0;
-    line-height: 1.7;
-  }
-  .feature-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-    padding: 4rem 0;
-    border-top: 1px solid var(--light-line);
-  }
-  .feature-card:last-child { border-bottom: 1px solid var(--light-line); }
-  .feature-card.reverse .feature-text { order: 2; }
-  .feature-card.reverse .feature-visual { order: 1; }
-  .feature-tag {
-    display: inline-block;
-    font-size: 0.7rem; font-weight: 700;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--warm-white);
-    background: var(--moss);
-    padding: 0.3rem 0.7rem;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-  }
-  .feature-text h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-  }
-  .feature-text p {
-    margin-top: 1rem;
-    font-size: 0.95rem;
-    line-height: 1.75;
-    color: var(--charcoal);
-    opacity: 0.75;
-  }
-  .feature-detail {
-    margin-top: 1.2rem;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--terracotta);
-  }
-
-  .feature-visual {
-    background: var(--beige);
-    border-radius: 14px;
-    padding: 2.5rem;
-    min-height: 280px;
-    display: flex; flex-direction: column;
-    justify-content: center;
-  }
-
-  /* WhatsApp mock */
-  .wa-mock { display: flex; flex-direction: column; gap: 0.75rem; }
-  .wa-bubble {
-    padding: 0.75rem 1rem;
-    border-radius: 12px 12px 12px 4px;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    max-width: 85%;
-    animation: slideIn 0.5s ease backwards;
-  }
-  .wa-bubble:nth-child(2) { animation-delay: 0.3s; }
-  .wa-bubble:nth-child(3) { animation-delay: 0.6s; }
-  .wa-out {
-    background: #DCF8C6; color: #1a3a1a;
-    align-self: flex-end;
-    border-radius: 12px 12px 4px 12px;
-  }
-  .wa-in {
-    background: white; color: var(--charcoal);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  }
-  .wa-time { font-size: 0.65rem; color: #999; text-align: right; margin-top: 0.2rem; }
-  .wa-header {
-    display: flex; align-items: center; gap: 0.5rem;
-    margin-bottom: 0.75rem;
-    font-size: 0.8rem; font-weight: 600; color: var(--moss);
-  }
-  .wa-dot { width: 8px; height: 8px; background: #25D366; border-radius: 50%; }
-
-  /* Compliance mock */
-  .compliance-mock { display: flex; flex-direction: column; gap: 0.6rem; }
-  .comp-row {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 0.7rem 0.9rem;
-    background: white; border-radius: 8px;
-    font-size: 0.82rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-  }
-  .comp-label { font-weight: 500; }
-  .comp-badge {
-    font-size: 0.7rem; font-weight: 600;
-    padding: 0.2rem 0.6rem; border-radius: 20px;
-  }
-  .comp-urgent { background: #FDECEA; color: #C0392B; }
-  .comp-ok { background: #E8F5E9; color: #2E7D32; }
-  .comp-soon { background: #FFF8E1; color: #F57F17; }
-
-  /* Maintenance mock */
-  .maint-mock { display: flex; flex-direction: column; gap: 0.6rem; }
-  .maint-card {
-    display: flex; gap: 0.8rem; align-items: flex-start;
-    padding: 0.8rem;
-    background: white; border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-  }
-  .maint-icon {
-    width: 32px; height: 32px;
-    background: var(--beige); border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem; flex-shrink: 0;
-  }
-  .maint-info h4 { font-size: 0.82rem; font-weight: 600; margin-bottom: 0.15rem; }
-  .maint-info p { font-size: 0.72rem; color: #999; line-height: 1.4; }
-  .maint-status {
-    margin-left: auto;
-    font-size: 0.65rem; font-weight: 600;
-    padding: 0.15rem 0.5rem; border-radius: 20px;
-    white-space: nowrap; flex-shrink: 0;
-  }
-  .status-new { background: #E3F2FD; color: #1565C0; }
-  .status-progress { background: #FFF3E0; color: #E65100; }
-
-  /* ─── FOUNDER STRIP ─── */
-  .founder-strip {
-    padding: 3.5rem 2rem;
-    background: var(--beige);
-    text-align: center;
-  }
-  .founder-inner { max-width: 560px; margin: 0 auto; }
-  .founder-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem;
-    font-style: italic;
-    line-height: 1.55;
-    color: var(--charcoal);
-  }
-  .founder-attr {
-    margin-top: 1rem;
-    font-size: 0.82rem;
-    color: var(--warm-gray);
-    font-weight: 500;
-  }
-  .founder-attr strong { color: var(--charcoal); font-weight: 600; }
-
-  /* ─── PHILOSOPHY ─── */
-  .philosophy {
-    padding: 7rem 2rem;
-    background: var(--charcoal);
-    color: var(--warm-white);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .philosophy::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 40% 50% at 10% 90%, rgba(184,92,56,0.1) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 50% at 90% 10%, rgba(92,107,74,0.08) 0%, transparent 70%);
-  }
-  .philosophy-inner { max-width: 700px; margin: 0 auto; position: relative; }
-  .philosophy .section-label { color: var(--warm-gray); }
-  .philosophy h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-    font-weight: 500;
-    line-height: 1.35;
-    letter-spacing: -0.01em;
-    font-style: italic;
-    color: var(--beige);
-  }
-  .philosophy-body {
-    margin-top: 2rem;
-    font-size: 1rem;
-    line-height: 1.85;
-    color: var(--warm-gray);
-    max-width: 540px;
-    margin-left: auto; margin-right: auto;
-  }
-  .philosophy-pillars {
-    display: flex; gap: 2.5rem;
-    justify-content: center;
-    margin-top: 3rem;
-    flex-wrap: wrap;
-  }
-  .pillar { flex: 1; min-width: 150px; max-width: 200px; }
-  .pillar-icon { font-size: 1.6rem; margin-bottom: 0.6rem; }
-  .pillar h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: var(--beige); }
-  .pillar p { font-size: 0.78rem; line-height: 1.6; color: var(--warm-gray); }
+  .section-label { font-size:0.75rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--terracotta); margin-bottom:1.5rem; }
 
   /* ─── FINAL CTA ─── */
-  .final-cta {
-    padding: 7rem 2rem;
-    background: var(--warm-white);
-    text-align: center;
-  }
-  .final-cta-inner { max-width: 600px; margin: 0 auto; }
-  .final-cta h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-  }
-  .final-cta h2 em { font-style: italic; color: var(--terracotta); }
-  .final-cta p {
-    margin-top: 1.2rem;
-    font-size: 1rem;
-    line-height: 1.75;
-    color: var(--charcoal);
-    opacity: 0.7;
-  }
-  .final-note {
-    margin-top: 1rem;
-    font-size: 0.8rem;
-    color: var(--warm-gray);
-  }
+  .final-cta { padding:7rem 2rem; background:var(--warm-white); text-align:center; }
+  .final-cta-inner { max-width:600px; margin:0 auto; }
+  .final-cta h2 { font-family:'Cormorant Garamond', serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:600; line-height:1.15; letter-spacing:-0.02em; }
+  .final-cta h2 em { font-style:italic; color:var(--terracotta); }
+  .final-cta p { margin-top:1.2rem; font-size:1rem; line-height:1.75; color:var(--charcoal); opacity:0.7; }
+  .final-note { margin-top:1rem; font-size:0.8rem; color:var(--warm-gray); }
 
   /* ─── EMAIL FORM ─── */
-  .email-form {
-    display: flex; gap: 0.5rem;
-    margin-top: 2rem;
-    max-width: 440px;
-    width: 100%;
-  }
-  .email-form input {
-    flex: 1;
-    padding: 0.95rem 1.2rem;
-    border: 1.5px solid var(--light-line);
-    border-radius: 8px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.95rem;
-    background: var(--warm-white);
-    color: var(--charcoal);
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .email-form input::placeholder { color: var(--warm-gray); }
+  .email-form { display:flex; gap:0.5rem; margin-top:2rem; max-width:440px; width:100%; }
+  .email-form input { flex:1; padding:0.95rem 1.2rem; border:1.5px solid var(--light-line); border-radius:8px; font-family:'DM Sans', sans-serif; font-size:0.95rem; background:var(--warm-white); color:var(--charcoal); outline:none; transition:border-color 0.2s; }
+  .email-form input::placeholder { color:var(--warm-gray); }
   .email-form input:focus { border-color: var(--terracotta); }
-  .email-form .btn-primary {
-    white-space: nowrap;
-    padding: 0.95rem 1.6rem;
-    margin-top: 0;
-  }
-  .final-cta .email-form { margin-left: auto; margin-right: auto; justify-content: center; }
-  .hero .email-form { justify-content: center; }
+  .email-form .btn-primary { white-space:nowrap; padding:0.95rem 1.6rem; margin-top:0; }
+  .final-cta .email-form { margin-left:auto; margin-right:auto; justify-content:center; }
+  .hero .email-form { justify-content:center; }
 
   /* ─── FOOTER ─── */
-  footer {
-    padding: 3rem 2rem;
-    text-align: center;
-    background: var(--warm-white);
-    border-top: 1px solid var(--light-line);
-  }
-  .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 700; font-size: 1.3rem;
-    color: var(--terracotta);
-  }
+  footer { padding:3rem 2rem; text-align:center; background:var(--warm-white); border-top:1px solid var(--light-line);}
+  .footer-logo { font-family:'Cormorant Garamond', serif; font-weight:700; font-size:1.3rem; color:var(--terracotta);}
   .footer-logo span { color: var(--moss); }
-  footer p { margin-top: 0.5rem; font-size: 0.78rem; color: var(--warm-gray); }
-  footer a { color: var(--warm-gray); text-decoration: none; transition: color 0.2s; }
+  footer p { margin-top:0.5rem; font-size:0.78rem; color:var(--warm-gray);}
+  footer a { color:var(--warm-gray); text-decoration:none; transition:color 0.2s; }
   footer a:hover { color: var(--terracotta); }
 
-  /* ─── ANIMATIONS ─── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes slideIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links a:not(.nav-cta) { display: none; }
-    .feature-card { grid-template-columns: 1fr; gap: 2rem; }
-    .feature-card.reverse .feature-text,
-    .feature-card.reverse .feature-visual { order: unset; }
-    .philosophy-pillars { gap: 1.5rem; }
-    .hero { padding: 7rem 1.5rem 4rem; }
-  }
-  @media (max-width: 480px) {
-    .email-form { flex-direction: column; }
-    .email-form .btn-primary { width: 100%; justify-content: center; }
-  }
+  @keyframes fadeUp { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
 </style>
 </head>
 <body>
 
-<!-- ─── NAV ─── -->
+<!-- NAV -->
 <nav>
   <div class="logo">Vesta<span>.</span></div>
   <div class="nav-links">
@@ -564,202 +88,46 @@
   </div>
 </nav>
 
-<!-- ─── HERO ─── -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-eyebrow">Property management for humans, not corporations</div>
-  <h1>The property app that's fair to everyone — <em>including you.</em></h1>
+  <h1>The property app that's fair to everyone <em>including you.</em></h1>
   <p class="hero-sub">You already care about your tenants. Now there's an app that does too. Rent tracking, compliance deadlines, and maintenance — through WhatsApp, not another login nobody asked for.</p>
   <div class="hero-cta-group">
-    <div class="email-form" style="opacity:0; animation: fadeUp 0.8s ease forwards 0.8s;">
-      <input type="email" placeholder="Your email address" aria-label="Email address">
-      <button class="btn-primary" onclick="this.textContent='You\'re in! ✓'; this.style.background='var(--moss)'; this.disabled=true;">Join the waitlist →</button>
-    </div>
+    <form class="email-form" action="https://formspree.io/f/xlgpybol" method="POST" style="opacity:0; animation: fadeUp 0.8s ease forwards 0.8s;">
+      <input type="email" name="email" placeholder="Your email address" aria-label="Email address" required>
+      <button class="btn-primary" type="submit">Join the waitlist →</button>
+    </form>
   </div>
   <p class="hero-proof">Built for UK landlords with 1–5 properties <span></span> Free during early access <span></span> No spam, ever</p>
 </section>
 
-<!-- ─── PAIN ─── -->
-<section class="pain">
-  <div class="pain-inner">
-    <div class="section-label">Sound familiar?</div>
-    <h2>You got into this to build something — not to spend your evenings on admin.</h2>
-    <p class="pain-body">Maybe it's a pension. Maybe it's security for your family. Either way, you're a good landlord doing your best with tools that weren't built for you. Spreadsheets, scattered texts, compliance dates you're somehow supposed to just remember. You deserve better than that.</p>
-    <div class="pain-list">
-      <div class="pain-item">
-        <div class="pain-item-num">01</div>
-        <h3>The rent conversation</h3>
-        <p>Reminding someone you like about money is just… awkward. You put it off, they forget, and a simple thing starts to feel complicated.</p>
-        <span class="pain-resolve">→ Vesta handles this on WhatsApp, warmly and automatically.</span>
-      </div>
-      <div class="pain-item">
-        <div class="pain-item-num">02</div>
-        <h3>The compliance guesswork</h3>
-        <p>Gas Safety, EPC, EICR, deposit protection — each with a different deadline you're supposed to just know. It's a lot to keep in your head.</p>
-        <span class="pain-resolve">→ Vesta tracks every deadline and nudges you months ahead.</span>
-      </div>
-      <div class="pain-item">
-        <div class="pain-item-num">03</div>
-        <h3>The Sunday evening text</h3>
-        <p>"The boiler's making a weird noise." You want to help, but your plumber's number is… somewhere. The warranty details are… somewhere else.</p>
-        <span class="pain-resolve">→ Vesta gives tenants a simple link. Everything logged, nothing lost.</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ─── FEATURES ─── -->
-<section class="features" id="features">
-  <div class="features-inner">
-    <div class="features-header">
-      <div class="section-label">What Vesta does</div>
-      <h2>Three things, done properly.</h2>
-      <p>No bloated dashboards. No feature creep. Just the three things every small landlord actually needs.</p>
-    </div>
-
-    <!-- Feature 1: WhatsApp rent -->
-    <div class="feature-card">
-      <div class="feature-text">
-        <div class="feature-tag">Rent tracking</div>
-        <h3>Rent reminders your tenant will actually open.</h3>
-        <p>Vesta sends gentle reminders via WhatsApp — 98% open rate, warm tone, your timing. If they've already paid, they confirm with a tap. The awkward conversation just… disappears.</p>
-        <div class="feature-detail">↳ WhatsApp-first. Because nobody opens "noreply@" anything.</div>
-      </div>
-      <div class="feature-visual">
-        <div class="wa-header"><div class="wa-dot"></div> Vesta · WhatsApp</div>
-        <div class="wa-mock">
-          <div class="wa-bubble wa-in">
-            Hi Sarah 👋 Friendly reminder — your rent of £1,150 for 42 Maple Road is due this Friday (28th). Tap below to confirm once paid.
-            <div class="wa-time">09:01</div>
-          </div>
-          <div class="wa-bubble wa-out">
-            Paid this morning! Standing order went through ✓
-            <div class="wa-time">09:14</div>
-          </div>
-          <div class="wa-bubble wa-in">
-            Brilliant — marked as received. Thanks Sarah! 🏡
-            <div class="wa-time">09:14</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Feature 2: Compliance -->
-    <div class="feature-card reverse">
-      <div class="feature-text">
-        <div class="feature-tag">Compliance</div>
-        <h3>Every deadline, tracked. Months before it matters.</h3>
-        <p>Gas Safety, EPCs, EICRs, deposit schemes — Vesta knows when each one expires and nudges you with plenty of time to act. No last-minute panics. No nasty surprises.</p>
-        <div class="feature-detail">↳ Colour-coded. Calendar-synced. Panic-free.</div>
-      </div>
-      <div class="feature-visual">
-        <div class="compliance-mock">
-          <div class="comp-row">
-            <span class="comp-label">🔥 Gas Safety — 42 Maple Rd</span>
-            <span class="comp-badge comp-urgent">Expires in 18 days</span>
-          </div>
-          <div class="comp-row">
-            <span class="comp-label">⚡ EICR — 42 Maple Rd</span>
-            <span class="comp-badge comp-soon">Due in 4 months</span>
-          </div>
-          <div class="comp-row">
-            <span class="comp-label">🏠 EPC — 7 Birch Lane</span>
-            <span class="comp-badge comp-ok">Valid until 2028</span>
-          </div>
-          <div class="comp-row">
-            <span class="comp-label">🔒 Deposit — 42 Maple Rd</span>
-            <span class="comp-badge comp-ok">Protected ✓</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Feature 3: Maintenance -->
-    <div class="feature-card">
-      <div class="feature-text">
-        <div class="feature-tag">Maintenance</div>
-        <h3>Tenants report issues properly. No app needed.</h3>
-        <p>Your tenant gets a simple web link — no download, no account. They describe the issue, add a photo, and submit. You get a clear log with timestamps, images, and a proper paper trail.</p>
-        <div class="feature-detail">↳ Shareable link. Works on any phone. Everything in one place.</div>
-      </div>
-      <div class="feature-visual">
-        <div class="maint-mock">
-          <div class="maint-card">
-            <div class="maint-icon">🚿</div>
-            <div class="maint-info">
-              <h4>Low water pressure — bathroom</h4>
-              <p>Submitted by Sarah · 2 hours ago · 1 photo attached</p>
-            </div>
-            <div class="maint-status status-new">New</div>
-          </div>
-          <div class="maint-card">
-            <div class="maint-icon">🔧</div>
-            <div class="maint-info">
-              <h4>Kitchen tap dripping</h4>
-              <p>Submitted by Sarah · 3 days ago · Plumber booked Thurs</p>
-            </div>
-            <div class="maint-status status-progress">In progress</div>
-          </div>
-          <div class="maint-card">
-            <div class="maint-icon">💡</div>
-            <div class="maint-info">
-              <h4>Hallway light flickering</h4>
-              <p>Submitted by Sarah · 1 week ago · Resolved</p>
-            </div>
-            <div class="maint-status" style="background:#E8F5E9;color:#2E7D32;">Done</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── PHILOSOPHY ─── -->
-<section class="philosophy" id="philosophy">
-  <div class="philosophy-inner">
-    <div class="section-label">Why we're different</div>
-    <h2>"Every property app serves landlords. Vesta is the first one built for both sides of the door."</h2>
-    <p class="philosophy-body">When tenants feel like partners instead of line items, they stay longer, communicate openly, and look after your property like it matters to them. That's not idealism — it's just good landlording.</p>
-    <div class="philosophy-pillars">
-      <div class="pillar">
-        <div class="pillar-icon">◐</div>
-        <h4>Both sides</h4>
-        <p>One app, two experiences. Landlords manage. Tenants participate. Nobody is sidelined.</p>
-      </div>
-      <div class="pillar">
-        <div class="pillar-icon">◈</div>
-        <h4>Already there</h4>
-        <p>WhatsApp, not another portal. We meet people where they already are.</p>
-      </div>
-      <div class="pillar">
-        <div class="pillar-icon">○</div>
-        <h4>Radically simple</h4>
-        <p>Three features, not thirty. Built for the landlord with two properties, not two hundred.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── FINAL CTA ─── -->
+<!-- FINAL CTA -->
 <section class="final-cta" id="cta">
   <div class="final-cta-inner">
     <div class="section-label">Early access</div>
     <h2>Be the landlord your tenant <em>recommends.</em></h2>
-    <p>We're opening Vesta to a small group of UK landlords first. Early members get free access and a real say in what we build next. If this sounds like it was made for you — it probably was.</p>
-    <div class="email-form">
-      <input type="email" placeholder="Your email address" aria-label="Email address">
-      <button class="btn-primary" onclick="this.textContent='You\'re in! ✓'; this.style.background='var(--moss)'; this.disabled=true;">Join the waitlist →</button>
-    </div>
+    <p>We're opening Vesta to a small group of UK landlords first. Early members get free access and a real say in what we build next. If this sounds like it was made for you, it probably was.</p>
+    <form class="email-form" action="https://formspree.io/f/xlgpybol" method="POST">
+      <input type="email" name="email" placeholder="Your email address" aria-label="Email address" required>
+      <button class="btn-primary" type="submit">Join the waitlist →</button>
+    </form>
     <p class="final-note">No card required. No spam. Just early access when we launch.</p>
   </div>
 </section>
 
-<!-- ─── FOOTER ─── -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-logo">Vesta<span>.</span></div>
-  <p style="margin-top:0.3rem; font-style:italic; font-family:'Cormorant Garamond',serif; font-size:0.9rem; color:var(--warm-gray);">Where landlords and tenants belong together.</p>
+  <p style="margin-top:0.3rem; font-style:italic;">Where landlords and tenants belong together.</p>
   <p style="margin-top:1.5rem;">© 2026 Vesta · <a href="#">Privacy</a> · <a href="#">Terms</a> · Built in the UK 🇬🇧</p>
 </footer>
 
 </body>
+</html>
+
+  
+    
+   
+   
+    
